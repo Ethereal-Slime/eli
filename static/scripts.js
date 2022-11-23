@@ -22,8 +22,6 @@ $(document).ready(() => {
                       let id = index+1;
                       $stocks.append('<p> stock id: '+id+ ' name: ' +stock_main[i]+ " value: " + stock_info.value+ " timeStamp: " +stock_info.timestamp+'</p>')
                     })
-
-                    
                   }
                 })
               })
@@ -33,7 +31,9 @@ $(document).ready(() => {
         setTimeout(() => {
           $('#spinner').removeAttr('id');
         }, 2000);
+
       }
+      
     })
   })
 });

@@ -15,14 +15,20 @@ app.use(express.static(path.join(__dirname, 'static')))
 
 
 app.get('/stocks', async (req, res) => {
-  const stockSymbols = await stocks.getStocks()
-  console.log(stockSymbols)
-  //if statement here for fixing backend
-  //return res.status(500).send("error in getting stock")
-  res.send({ stockSymbols })
+  try {
+    const stockSymbols = await stocks.getStocks()
+    console.log(stockSymbols)
+    //if statement here for fixing backend
+    //return res.status(500).send("error in getting stock")
+    res.send({ stockSymbols })
+  } catch (error) {
+    next(error)
+    
+  }
+
 })
 
-app.get('/stocks/:symbol', async (req, res) => {
+app.get('/stocks/:symbol', async (req, res,next) => {
   try {
     const { params: { symbol } } = req
     const data = await stocks.getStockPoints(symbol, new Date())
@@ -52,12 +58,23 @@ app.get('/stocks/:symbol', async (req, res) => {
     res.send(data)
     
   } catch (error) {
-    
+    next(error)
   }
 
   
 })
 
+/*         $.ajax({
+          type: "POST",
+          url: "some.php",
+          data: "name=wewww",
+          success: function(msg){
+                alert( "Data Saved: " + msg );
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+             alert("some error");
+          }
+        }); */
 
 app.use(function (err,req,res, next){
   console.error(err.stack)
@@ -67,10 +84,21 @@ app.use(function (err,req,res, next){
 //Expressjs is a view engine
 //res = response, req = requests
 //ptentionaly fixed error message???
-app.get("/", (req,res) => {
+app.get("/", (req,res,next) => {
   
-  console.log("unable to get stock request")
-  res.send("unable to request stocks")
+/*   console.log("unable to get stock request")
+  res.send("unable to request stocks") */
+  setTimeout(() => {
+    try {
+      console.log("an error occured fetching stocks")
+      
+      throw new Error("unable to retrieve stock")
+    } catch (error) {
+      next(error)
+    }
+  }, 1000);
+
+  
   
   //res.render("index")
 })
