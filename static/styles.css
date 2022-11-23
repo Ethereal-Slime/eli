@@ -1,0 +1,27 @@
+#spinner{
+  font-size: 140px;
+
+
+}
+#spinner:after {
+  display: inline-block;
+  content: '◌';
+  animation-name: spin;
+  animation-duration: 2500ms;
+  animation-iteration-count: infinite;
+  
+}
+@-webkit-keyframes spin{
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+
+#chart {
+    border: 1px solid black;
+}
+
