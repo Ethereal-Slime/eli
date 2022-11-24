@@ -35,9 +35,10 @@ $(document).ready(() => {
       success: function(stock_main){
         $.each(stock_main,function(index,stock_main){
           let lenght_of_arr = stock_main.length;
-          let stock_arr = [];
+          
           //$stocks.append'<p> value: '+ stock.value + ' time stamp: ' + stock.timestamp+ '</p>'
           for(let i=0; i<lenght_of_arr;i++){
+            let stock_arr = [];
             $(document).ready(() => {
               $(function(){
                 $.ajax({
@@ -50,7 +51,25 @@ $(document).ready(() => {
                     $.each(stock_info, function(index,stock_info){
                       
                       let id = index+1;
-                      let style  = ["red","yelow","grey","orange","brown"];
+                      let Colour;
+                      //let style  = ["red","yelow","grey","orange","brown"];
+                      switch (stock_main[i]) {
+                        case "MSFT":
+                            Colour = "Brown"
+                          break;
+                        case "APPL":
+                            Colour = "Green"
+                          break;
+                        case "IBM":
+                            Colour = "Purple"
+                          break;
+                        case "FB":
+                            Colour = "Blue"
+                          break;
+                        case "EA":
+                            Colour = "Red"
+                          break;
+                      }
                       
                       //$.(stocks_main[i]).append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
                       $stocks.append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
@@ -60,7 +79,7 @@ $(document).ready(() => {
                         let X_2 = (index*90)+50
                         let Y_1 = stock_arr[index-1];
                         let Y_2 = stock_arr[index];
-                        drawLine([X_1,Y_1],[X_2,Y_2],style[0])
+                        drawLine([X_1,Y_1],[X_2,Y_2],Colour)
                       }
                       //ctx.lineTo([stock_info,50],[90*id,550])
                       //stock_arr.append(stock_info.value)

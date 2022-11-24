@@ -22,6 +22,10 @@ body{
   
 }
 
+#result{
+  
+}
+
 #spinner:after {
   display: inline-block;
   content: '◌';
