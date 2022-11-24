@@ -15,15 +15,19 @@ body{
 }
 
 #values{
-
+  
+ 
 }
 
 #timestamps{
-  
+  position: relative;
+  top: 650px;
 }
 
 #result{
-  
+  position: relative;
+  right: 475px;
+  top: 300px
 }
 
 #spinner:after {
