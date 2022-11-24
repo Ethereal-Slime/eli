@@ -4,9 +4,14 @@ body{
   text-align: center;
   background-color:cornsilk;
   font-family: 'Noto Sans JP', sans-serif;
+  margin: auto;
+  padding: auto;
 }
 
-
+h1{
+  
+  font-size: 3rem;
+}
 
 #spinner{
   font-size: 140px;
@@ -15,8 +20,14 @@ body{
 }
 
 #values{
-  
+  margin: auto;
  
+}
+
+
+#color_list{
+  list-style: none;
+  font-size: 2rem;
 }
 
 #timestamps{
@@ -50,5 +61,6 @@ body{
 
 #chart {
     border: 1px solid black;
+    background-color:ivory;
 }
 
