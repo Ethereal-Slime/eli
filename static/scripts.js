@@ -50,7 +50,7 @@ $(document).ready(() => {
                     $.each(stock_info, function(index,stock_info){
                       
                       let id = index+1;
-                      var  = [];
+                      //var  = [];
                       //$.stocks_main[i].append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
                       $stocks.append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
                       //ctx.lineTo([stock_info,50],[90*id,550])
