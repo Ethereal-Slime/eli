@@ -54,12 +54,15 @@ $(document).ready(() => {
                       //$.stocks_main[i].append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
                       $stocks.append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
                       //ctx.lineTo([stock_info,50],[90*id,550])
-                      drawLine([50+90*(id-1),550],[50+90*(id-1),stock_info.value])
+                      
+                      drawLine([50+90*(id-1),550],[(50+90*(id-1)),300+stock_info.value])
                       //drawLine([50+90*(id-1),550],[950,stock_info.value])
                       //drawLine([50+90*(id-1),550],[950,50])
                       //$stocks.append('<p>' + $.id=stock_main[i]+ " stock_id: " +id+ " value: "+stock_info.value+ " timestamp: "+ stock_info.timestamp + '</p>')
                     })
+                    
                   }
+                  
                 })
               })
             })
@@ -74,3 +77,4 @@ $(document).ready(() => {
     })
   })
 });
+
