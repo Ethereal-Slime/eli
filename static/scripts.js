@@ -35,7 +35,7 @@ $(document).ready(() => {
       success: function(stock_main){
         $.each(stock_main,function(index,stock_main){
           let lenght_of_arr = stock_main.length;
-          
+          let stock_arr = [];
           //$stocks.append'<p> value: '+ stock.value + ' time stamp: ' + stock.timestamp+ '</p>'
           for(let i=0; i<lenght_of_arr;i++){
             $(document).ready(() => {
@@ -50,12 +50,22 @@ $(document).ready(() => {
                     $.each(stock_info, function(index,stock_info){
                       
                       let id = index+1;
-                      //var  = [];
-                      //$.stocks_main[i].append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
-                      $stocks.append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
-                      //ctx.lineTo([stock_info,50],[90*id,550])
+                      let style  = ["red","yelow","grey","orange","brown"];
                       
-                      drawLine([50+90*(id-1),550],[(50+90*(id-1)),300+stock_info.value])
+                      //$.(stocks_main[i]).append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
+                      $stocks.append('<p> stock_id: '+id+  " value: " + stock_info.value+ " timeStamp:     " + new Date(stock_info.timestamp)+'</p>')
+                      stock_arr.push(550-((stock_info.value/100)*500))
+                      if (index != 0) {
+                        let X_1 = ((index-1)*90)+50
+                        let X_2 = (index*90)+50
+                        let Y_1 = stock_arr[index-1];
+                        let Y_2 = stock_arr[index];
+                        drawLine([X_1,Y_1],[X_2,Y_2],style[0])
+                      }
+                      //ctx.lineTo([stock_info,50],[90*id,550])
+                      //stock_arr.append(stock_info.value)
+                      //drawLine([50+90*(id-1),550],[(50+90*(id-1)),300+stock_info.value])
+                      //drawLine([50+90*(id-1),550],[(50+90*(id-1)),300+stock_info.value],style[index])
                       //drawLine([50+90*(id-1),550],[950,stock_info.value])
                       //drawLine([50+90*(id-1),550],[950,50])
                       //$stocks.append('<p>' + $.id=stock_main[i]+ " stock_id: " +id+ " value: "+stock_info.value+ " timestamp: "+ stock_info.timestamp + '</p>')
@@ -63,6 +73,7 @@ $(document).ready(() => {
                     
                   }
                   
+
                 })
               })
             })
